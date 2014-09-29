@@ -4,7 +4,8 @@ python-apt:
 banshee:
   pkg.installed
 
-pkgrepo.managed:
+caffeine-ppa:
+  pkgrepo.managed:
   - humanname: Caffeine Developers PPA
   - name: deb http://ppa.launchpad.net/caffeine-developers/ppa/ubuntu trusty main
   - dist: trusty
@@ -14,7 +15,8 @@ pkgrepo.managed:
   - require_in:
     - pkg: caffeine
 
-pkg.latest:
-  - name: caffeine
-  - refresh: True
+caffeine:
+  - pkg.latest:
+    - name: caffeine
+    - refresh: True
 
