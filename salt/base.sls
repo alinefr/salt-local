@@ -16,7 +16,7 @@ caffeine-ppa:
     - pkg: caffeine
 
 caffeine:
-  - pkg.latest:
+  pkg.latest:
     - name: caffeine
     - refresh: True
 
