@@ -16,5 +16,6 @@ pkg-installed:
       - python-apt
       - banshee
       - caffeine
+      - mutt
 
 
