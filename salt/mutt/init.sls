@@ -1,4 +1,5 @@
 {% set user = pillar['user'] %}
+{% set user_home = salt['user.info'](user).home %}
 
 mutt-remove-unused:
   pkg.removed:
@@ -13,7 +14,7 @@ mutt-deps:
 
 mutt-config:
   file.managed:
-    - name: ~{{ user }}/.muttrc
+    - name: {{ user_home }}/.muttrc
     - source: salt://mutt/muttrc
     - user: {{ user }}
     - mode: 0600
