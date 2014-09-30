@@ -6,8 +6,6 @@ caffeine-ppa:
     - file: /etc/apt/sources.list.d/caffeine.list
     - keyid: 569113AE
     - keyserver: keyserver.ubuntu.com
-    - require_in:
-      - pkg: caffeine
 
 rhythmbox:
   pkg.removed
