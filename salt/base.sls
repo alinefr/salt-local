@@ -7,8 +7,11 @@ caffeine-ppa:
     - keyid: 569113AE
     - keyserver: keyserver.ubuntu.com
 
-rhythmbox:
-  pkg.removed
+pkg-removed:
+  pkg.removed:
+    - pkgs:
+      - rhythmbox
+      - postfix
 
 pkg-installed:
   pkg.latest:
@@ -17,5 +20,7 @@ pkg-installed:
       - banshee
       - caffeine
       - mutt
+      - mutt-patched
+      - urlview
 
 
