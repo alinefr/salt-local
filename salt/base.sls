@@ -22,5 +22,6 @@ pkg-installed:
       - mutt
       - mutt-patched
       - urlview
+      - htop
 
 
