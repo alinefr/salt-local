@@ -2,7 +2,7 @@
 {% set user_home = salt['user.info'](user).home %}
 
 fglrx-deps:
-  pkg.install:
+  pkg.latest:
     - pkgs:
       - libqtgui4
       - dh-make
