@@ -1,12 +1,40 @@
-{% set gmail_name = pillar['name'] -%}
-{% set gmail_user = pillar['email'] -%}
-{% set gmail_pass = pillar['gmail_pass'] -%}
-set imap_user="{{ gmail_user }}"
-set imap_pass="{{ gmail_pass }}"
+{% set name = pillar['name'] -%}
+{% set alineemail = pillar['alineemail'] -%}
+{% set alineemail_pass = pillar['gmail_pass'] -%}
+{% set doubleleftemail = pillar['doubleleftemail'] -%}
+{% set doubleleftemail_pass = pillar['doubleleftemail_pass'] -%}
+account-hook . "unset imap_user; unset imap_pass; unset tunnel"
+account-hook        "imaps://{{ alineemail }}@imap.gmail.com/" "\
+    set imap_user   = {{ alineemail }}\
+        imap_pass   = {{ alineemail_pass }}"
 
-set spoolfile=imaps://imap.gmail.com:993/INBOX
-set folder=imaps://imap.gmail.com:993
-set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
+account-hook        "imaps://{{ doubleleftemail }}@imap.gmail.com/" "\
+    set imap_user   = {{ doubleleftemail }} \
+            imap_pass   = {{ doubleleftemail }}"
+
+set folder          = imaps://{{ alineemail }}@imap.gmail.com/
+set spoolfile       = +INBOX
+folder-hook         imaps://{{ alineemail }}@imap.gmail.com/ "\
+    set folder      = imaps://{{ alineemail }}@imap.gmail.com/ \
+        spoolfile   = +INBOX \
+        postponed   = +[Gmail]/Drafts \
+        record      = +[Gmail]/'Sent Mail' \
+        from        = '{{ name }} <{{ alineemail }}> ' \
+        realname    = '{{ name }}' \
+        smtp_url    = smtps://{{ alineemail }}@smtp.gmail.com \
+        smtp_pass   = {{ alineemail_pass }}"
+
+set folder          = imaps://{{ doubleleftemail }}@imap.gmail.com/
+set spoolfile       = +INBOX
+folder-hook         imaps://{{ doubleleftemail }}@imap.gmail.com/ "\
+    set folder      = imaps://{{ doubleleftemail }}@imap.gmail.com/ \
+        spoolfile   = +INBOX \
+        postponed   = +[Gmail]/Drafts \
+        record      = +[Gmail]/'Sent Mail' \
+        from        = '{{ name }} <{{ doubleleftemail }}@gmail.com> ' \
+        realname    = '{{ name }}' \
+        smtp_url    = smtps://{{ doubleleftemail }}@smtp.gmail.com \
+        smtp_pass   = {{ doubleleftemail_pass }}"
 
 set header_cache="~/.mutt/cache/headers"
 set message_cachedir="~/.mutt/cache/bodies"
@@ -23,9 +51,6 @@ ignore "DomainKey-Signature:"
 ignore "DKIM-Signature:"
 
 hdr_order Date From To Cc
-
-set from="{{ gmail_user }}"
-set realname="{{ gmail_name }}"
 set editor='vim'
 
 unset imap_passive
