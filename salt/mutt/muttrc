@@ -10,7 +10,7 @@ account-hook        "imaps://{{ alineemail|urlencode }}@imap.gmail.com/" "\
 
 account-hook        "imaps://{{ doubleleftemail|urlencode }}@imap.gmail.com/" "\
     set imap_user   = {{ doubleleftemail }} \
-            imap_pass   = {{ doubleleftemail }}"
+            imap_pass   = {{ doubleleftemail_pass }}"
 
 set folder          = imaps://{{ alineemail|urlencode }}@imap.gmail.com/
 set spoolfile       = +INBOX
