@@ -17,7 +17,7 @@ unzip-fglrx:
     - extracted
     - name: {{ user_home }}/Downloads
     - source: http://www2.ati.com/drivers/linux/amd-catalyst-14-9-linux-x86-x86-64.zip
-    - source_hash: md5=117f757f941c885ec1b771517551a602
+    - source_hash: md5=525be162418929e8049d356a0bdee8fb
     - archive_format: zip
     - if_missing: {{ user_home }}/Downloads/fglrx-14.301.1001
     - user: {{ user }}
