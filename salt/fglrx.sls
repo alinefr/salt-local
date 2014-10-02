@@ -26,7 +26,7 @@ unzip-fglrx:
 
 generate-pkgs:
   cmd.run: 
-    - name: sh amd-driver-installer-14.301.1001-x86.x86_64.run
+    - name: sh amd-driver-installer-14.301.1001-x86.x86_64.run --buildpkg Ubuntu/trusty
     - cwd: {{ user_home }}/Downloads/fglrx-14.301.1001
     - user: {{ user }}
     - require:
