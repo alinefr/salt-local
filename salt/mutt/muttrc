@@ -65,6 +65,4 @@ bind index,pager CO sidebar-open
 macro index,pager B '<enter-command>toggle sidebar_visible<enter>'
 color sidebar_new yellow default
 
-set smtp_url="{{ gmail_user }}@smtp.gmail.com:587/"
-set smtp_pass="{{ gmail_pass }}"
 
