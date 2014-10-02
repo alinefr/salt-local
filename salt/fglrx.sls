@@ -23,7 +23,7 @@ download-fglrx:
   module.run:
     - name: archive.unzip
     - zipfile: {{ user_home }}/Downloads/amd-catalyst-14-9-linux-x86-x86-64.zip
-    - dest: {{ user_home }}/Downloads/fglrx-14.301.1001
+    - dest: {{ user_home }}/Downloads
     - user: {{ user }}
     - require:
       - cmd: download-fglrx
