@@ -1,6 +1,6 @@
 {% set name = pillar['name'] -%}
 {% set alineemail = pillar['alineemail'] -%}
-{% set alineemail_pass = pillar['gmail_pass'] -%}
+{% set alineemail_pass = pillar['alineemail_pass'] -%}
 {% set doubleleftemail = pillar['doubleleftemail'] -%}
 {% set doubleleftemail_pass = pillar['doubleleftemail_pass'] -%}
 account-hook . "unset imap_user; unset imap_pass; unset tunnel"
