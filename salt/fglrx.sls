@@ -24,8 +24,8 @@ unzip-fglrx:
       - pkg: fglrx-deps
 
 generate-pkgs:
-  cmd.run: sh amd-driver-installer-14.301.1001-x86.x86_64.run
-    - cwd: {{ user_home }}/Downloads/fglrx-14.301.1001
+  cmd.run: sh fglrx-14.301.1001/amd-driver-installer-14.301.1001-x86.x86_64.run
+    - cwd: {{ user_home }}/Downloads/
     - user: {{ user }}
     - require:
       - archive: unzip-fglrx
