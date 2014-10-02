@@ -4,36 +4,36 @@
 {% set doubleleftemail = pillar['doubleleftemail'] -%}
 {% set doubleleftemail_pass = pillar['doubleleftemail_pass'] -%}
 account-hook . "unset imap_user; unset imap_pass; unset tunnel"
-account-hook        "imaps://{{ alineemail }}@imap.gmail.com/" "\
+account-hook        "imaps://{{ alineemail|urlencode }}@imap.gmail.com/" "\
     set imap_user   = {{ alineemail }}\
         imap_pass   = {{ alineemail_pass }}"
 
-account-hook        "imaps://{{ doubleleftemail }}@imap.gmail.com/" "\
+account-hook        "imaps://{{ doubleleftemail|urlencode }}@imap.gmail.com/" "\
     set imap_user   = {{ doubleleftemail }} \
             imap_pass   = {{ doubleleftemail }}"
 
-set folder          = imaps://{{ alineemail }}@imap.gmail.com/
+set folder          = imaps://{{ alineemail|urlencode }}@imap.gmail.com/
 set spoolfile       = +INBOX
-folder-hook         imaps://{{ alineemail }}@imap.gmail.com/ "\
+folder-hook         imaps://{{ alineemail|urlencode }}@imap.gmail.com/ "\
     set folder      = imaps://{{ alineemail }}@imap.gmail.com/ \
         spoolfile   = +INBOX \
         postponed   = +[Gmail]/Drafts \
         record      = +[Gmail]/'Sent Mail' \
         from        = '{{ name }} <{{ alineemail }}> ' \
         realname    = '{{ name }}' \
-        smtp_url    = smtps://{{ alineemail }}@smtp.gmail.com \
+        smtp_url    = smtps://{{ alineemail|urlencode }}@smtp.gmail.com \
         smtp_pass   = {{ alineemail_pass }}"
 
-set folder          = imaps://{{ doubleleftemail }}@imap.gmail.com/
+set folder          = imaps://{{ doubleleftemail|urlencode }}@imap.gmail.com/
 set spoolfile       = +INBOX
-folder-hook         imaps://{{ doubleleftemail }}@imap.gmail.com/ "\
-    set folder      = imaps://{{ doubleleftemail }}@imap.gmail.com/ \
+folder-hook         imaps://{{ doubleleftemail|urlencode }}@imap.gmail.com/ "\
+    set folder      = imaps://{{ doubleleftemail|urlencode }}@imap.gmail.com/ \
         spoolfile   = +INBOX \
         postponed   = +[Gmail]/Drafts \
         record      = +[Gmail]/'Sent Mail' \
         from        = '{{ name }} <{{ doubleleftemail }}@gmail.com> ' \
         realname    = '{{ name }}' \
-        smtp_url    = smtps://{{ doubleleftemail }}@smtp.gmail.com \
+        smtp_url    = smtps://{{ doubleleftemail|urlencode }}@smtp.gmail.com \
         smtp_pass   = {{ doubleleftemail_pass }}"
 
 set header_cache="~/.mutt/cache/headers"
