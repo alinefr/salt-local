@@ -10,7 +10,7 @@ account-hook        "imaps://{{ alineemail|urlencode }}@imap.gmail.com/" "\
 
 account-hook        "imaps://{{ doubleleftemail|urlencode }}@imap.gmail.com/" "\
     set imap_user   = {{ doubleleftemail }} \
-            imap_pass   = {{ doubleleftemail_pass }}"
+        imap_pass   = {{ doubleleftemail_pass }}"
 
 set folder          = imaps://{{ alineemail|urlencode }}@imap.gmail.com/
 set spoolfile       = +INBOX
@@ -31,7 +31,7 @@ folder-hook         imaps://{{ doubleleftemail|urlencode }}@imap.gmail.com/ "\
         spoolfile   = +INBOX \
         postponed   = +[Gmail]/Drafts \
         record      = +[Gmail]/'Sent Mail' \
-        from        = '{{ name }} <{{ doubleleftemail }}@gmail.com> ' \
+        from        = '{{ name }} <{{ doubleleftemail }}> ' \
         realname    = '{{ name }}' \
         smtp_url    = smtps://{{ doubleleftemail|urlencode }}@smtp.gmail.com \
         smtp_pass   = {{ doubleleftemail_pass }}"
