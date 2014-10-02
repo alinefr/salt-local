@@ -20,10 +20,14 @@ unzip-fglrx:
     - archive_format: zip
     - if_missing: {{ user_home }}/Downloads/fglrx-14.301.1001
     - user: {{ user }}
+    - require:
+      - pkg: fglrx-deps
 
 generate-pkgs:
   cmd.run: sh amd-driver-installer-14.301.1001-x86.x86_64.run
     - cwd: {{ user_home }}/Downloads/fglrx-14.301.1001
     - user: {{ user }}
+    - require:
+      - archive: unzip-fglrx
 
 
