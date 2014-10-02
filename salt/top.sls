@@ -2,4 +2,6 @@ base:
   '*':
     - base
     - mutt
+    - fglrx
+
 
