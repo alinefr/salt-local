@@ -34,6 +34,6 @@ generate-pkgs:
     - cwd: {{ user_home }}/Downloads/fglrx-14.301.1001
     - user: {{ user }}
     - require:
-      - archive: unzip-fglrx
+      - module: download-fglrx
 
 
