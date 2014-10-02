@@ -27,7 +27,7 @@ download-fglrx:
     - user: {{ user }}
     - require:
       - cmd: download-fglrx
-    - onlyif: test -d {{ user_home }}/Downloads/fglrx-14.301.1001
+    - unless: test -d {{ user_home }}/Downloads/fglrx-14.301.1001
 
 generate-pkgs:
   cmd.run: 
