@@ -9,7 +9,7 @@ account-hook        "imaps://{{ alineemail|urlencode }}@imap.gmail.com/" "\
         imap_pass   = {{ alineemail_pass }}"
 
 set folder          = imaps://{{ alineemail|urlencode }}:{{ alineemail_pass|urlencode }}@imap.gmail.com/
-set mailfolder      = +INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam =[Gmail]/Trash =importantes
+set mailboxes       = +INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam =[Gmail]/Trash =importantes
 set spoolfile       = +INBOX
 folder-hook         imaps://{{ alineemail|urlencode }}@imap.gmail.com/ "\
     set folder      = imaps://{{ alineemail }}@imap.gmail.com/ \
@@ -26,7 +26,7 @@ account-hook        "imaps://{{ doubleleftemail|urlencode }}@imap.gmail.com/" "\
         imap_pass   = {{ doubleleftemail_pass }}"
 
 set folder          = imaps://{{ doubleleftemail|urlencode }}:{{ doubleleftemail_pass|urlencode }}@imap.gmail.com/
-set mailfolder      = +INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam =[Gmail]/Trash =importantes
+set mailboxes       = +INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam =[Gmail]/Trash =importantes
 set spoolfile       = +INBOX
 folder-hook         imaps://{{ doubleleftemail|urlencode }}@imap.gmail.com/ "\
     set folder      = imaps://{{ doubleleftemail|urlencode }}@imap.gmail.com/ \
