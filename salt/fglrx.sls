@@ -14,9 +14,11 @@ fglrx-deps:
       - xserver-xorg-dev
 
 download-fglrx:
-  cmd.run:
-    - name: wget -nc http://www2.ati.com/drivers/linux/amd-catalyst-14-9-linux-x86-x86-64.zip
-    - cwd: {{ user_home }}/Downloads
+  file.managed:
+    - name: {{ user_home }}/Downloads/amd-catalyst-14-9-linux-x86-x86-64.zip
+    - source: http://www2.ati.com/drivers/linux/amd-catalyst-14-9-linux-x86-x86-64.zip
+    - source_hash: md5=117f757f941c885ec1b771517551a602
+    - replace: False
     - require: 
       - pkg: fglrx-deps
 
@@ -26,14 +28,14 @@ download-fglrx:
     - dest: {{ user_home }}/Downloads
     - options: -uo
     - require:
-      - cmd: download-fglrx
+      - file: download-fglrx
 
 generate-pkgs:
   cmd.wait: 
     - name: sh amd-driver-installer-14.301.1001-x86.x86_64.run --buildpkg Ubuntu/trusty
     - cwd: {{ user_home }}/Downloads/fglrx-14.301.1001
     - watch: 
-      - cmd: download-fglrx
+      - file: download-fglrx
 
 install-fglrx-pkgs:
   pkg.installed:
