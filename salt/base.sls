@@ -25,5 +25,6 @@ pkg-installed:
       - htop
       - ipython-qtconsole
       - ipython-notebook
+      - python-matplotlib 
 
 
