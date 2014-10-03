@@ -16,7 +16,7 @@ ipython-qtconsole-config:
 
   file.managed:
     - name: {{ user_home }}/.config/ipython/profile_default/ipython_config.py
-    - source salt://ipython/ipython_qtconsole_config.py
+    - source: salt://ipython/ipython_qtconsole_config.py
     - user: {{ user }}
     - require:
       - cmd: ipython-qtconsole-config
