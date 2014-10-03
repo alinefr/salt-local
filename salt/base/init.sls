@@ -19,13 +19,10 @@ pkg-installed:
       - python-apt
       - banshee
       - caffeine
-      - mutt
-      - mutt-patched
-      - urlview
       - htop
-      - ipython-qtconsole
-      - ipython-notebook
       - python-matplotlib 
       - vim-gtk
+
+
 
 
