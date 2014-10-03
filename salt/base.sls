@@ -26,5 +26,6 @@ pkg-installed:
       - ipython-qtconsole
       - ipython-notebook
       - python-matplotlib 
+      - vim-gtk
 
 
