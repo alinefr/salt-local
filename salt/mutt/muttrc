@@ -4,11 +4,11 @@
 {% set doubleleftemail = pillar['doubleleftemail'] -%}
 {% set doubleleftemail_pass = pillar['doubleleftemail_pass'] -%}
 account-hook . "unset imap_user; unset imap_pass; unset tunnel"
-account-hook        "imaps://{{ alineemail|urlencode }}@imap.gmail.com/" "\
+account-hook        "imaps://{{ alineemail|urlencode }}:{{ alineemail_pass|urlencode }}@imap.gmail.com/" "\
     set imap_user   = {{ alineemail }}\
         imap_pass   = {{ alineemail_pass }}"
 
-account-hook        "imaps://{{ doubleleftemail|urlencode }}@imap.gmail.com/" "\
+account-hook        "imaps://{{ doubleleftemail|urlencode }}:{{ doubleleftemail_pass|urlencode }}@imap.gmail.com/" "\
     set imap_user   = {{ doubleleftemail }} \
         imap_pass   = {{ doubleleftemail_pass }}"
 
