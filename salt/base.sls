@@ -23,5 +23,7 @@ pkg-installed:
       - mutt-patched
       - urlview
       - htop
+      - ipython-qtconsole
+      - ipython-notebook
 
 
