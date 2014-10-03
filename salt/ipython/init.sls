@@ -3,8 +3,9 @@
 
 ipython-pkgs:
   pkg.latest:
-      - ipython-qtconsole
-      - ipython-notebook
+      - pkgs:
+        - ipython-qtconsole
+        - ipython-notebook
 
 ipython-qtconsole-config:
   cmd.run:
