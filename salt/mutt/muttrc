@@ -59,9 +59,17 @@ set imap_keepalive=300
 set markers=no
 
 # mutt sidebar settings
-bind index,pager CP sidebar-prev
-bind index,pager CN sidebar-next
-bind index,pager CO sidebar-open
+# bind index,pager CP sidebar-prev
+# bind index,pager CN sidebar-next
+# bind index,pager CO sidebar-open
+
+bind index \CP sidebar-prev
+bind index \CN sidebar-next
+bind index \CO sidebar-open
+bind pager \CP sidebar-prev
+bind pager \CN sidebar-next
+bind pager \CO sidebar-open
+
 macro index,pager B '<enter-command>toggle sidebar_visible<enter>'
 color sidebar_new yellow default
 
