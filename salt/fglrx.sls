@@ -22,12 +22,12 @@ download-fglrx:
     - require: 
       - pkg: fglrx-deps
 
-  module.run:
+  module.wait:
     - name: archive.unzip
     - zipfile: {{ user_home }}/Downloads/amd-catalyst-14-9-linux-x86-x86-64.zip
     - dest: {{ user_home }}/Downloads
     - options: -uo
-    - require:
+    - watch:
       - file: download-fglrx
 
 generate-pkgs:
@@ -35,7 +35,7 @@ generate-pkgs:
     - name: sh amd-driver-installer-14.301.1001-x86.x86_64.run --buildpkg Ubuntu/trusty
     - cwd: {{ user_home }}/Downloads/fglrx-14.301.1001
     - watch: 
-      - file: download-fglrx
+      - module: download-fglrx
 
 install-fglrx-pkgs:
   pkg.installed:
@@ -43,4 +43,6 @@ install-fglrx-pkgs:
       - fglrx: {{ user_home }}/Downloads/fglrx-14.301.1001/fglrx_14.301-0ubuntu1_amd64.deb
       - fglrx-amdcccle: {{ user_home }}/Downloads/fglrx-14.301.1001/fglrx-amdcccle_14.301-0ubuntu1_amd64.deb
       - fglrx-dev: {{ user_home }}/Downloads/fglrx-14.301.1001/fglrx-dev_14.301-0ubuntu1_amd64.deb
+    - require:
+      - cmd: generate-pkgs
 
