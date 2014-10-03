@@ -24,6 +24,7 @@ download-fglrx:
     - name: archive.unzip
     - zipfile: {{ user_home }}/Downloads/amd-catalyst-14-9-linux-x86-x86-64.zip
     - dest: {{ user_home }}/Downloads
+    - options: -uo
     - require:
       - cmd: download-fglrx
 
@@ -38,4 +39,6 @@ install-fglrx-pkgs:
   pkg.installed:
     - sources:
       - fglrx: {{ user_home }}/Downloads/fglrx-14.301.1001/fglrx_14.301-0ubuntu1_amd64.deb
-      - fglrx-amdcccle: {{ user_home }}/Downloads/fglrx-amdcccle_14.301.1001/fglrx_14.301-0ubuntu1_amd64.deb
+      - fglrx-amdcccle: {{ user_home }}/Downloads/fglrx-14.301.1001/fglrx-amdcccle_14.301-0ubuntu1_amd64.deb
+      - fglrx-dev: {{ user_home }}/Downloads/fglrx-14.301.1001/fglrx-dev_14.301-0ubuntu1_amd64.deb
+
