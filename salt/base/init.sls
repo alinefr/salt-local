@@ -7,6 +7,13 @@ caffeine-ppa:
     - keyid: 569113AE
     - keyserver: keyserver.ubuntu.com
 
+osd-lyrics-ppa:
+  pkgrepo.managed:
+    - ppa: osd-lyrics/ppa
+  pkg.latest:
+    - name: osdlyrics
+    - refresh: True
+
 pkg-removed:
   pkg.removed:
     - pkgs:
