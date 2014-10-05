@@ -1,3 +1,9 @@
+ppa-required:
+  pkg.latest:
+    - pkgs:
+      - python-apt
+      - python-software-properties
+
 caffeine-ppa:
   pkgrepo.managed:
     - humanname: Caffeine Developers PPA
@@ -6,13 +12,8 @@ caffeine-ppa:
     - file: /etc/apt/sources.list.d/caffeine.list
     - keyid: 569113AE
     - keyserver: keyserver.ubuntu.com
-
-osd-lyrics-ppa:
-  pkgrepo.managed:
-    - ppa: osd-lyrics/ppa
-  pkg.latest:
-    - name: osdlyrics
-    - refresh: True
+    - require: 
+      - pkg: ppa-required
 
 pkg-removed:
   pkg.removed:
@@ -23,7 +24,6 @@ pkg-removed:
 pkg-installed:
   pkg.latest:
     - pkgs:
-      - python-apt
       - banshee
       - caffeine
       - htop

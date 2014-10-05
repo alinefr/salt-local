@@ -1,0 +1,7 @@
+#!/bin/bash
+unset GIT_INDEX_FILE
+export GIT_WORK_TREE=/srv/salt/
+export GIT_DIR=/home/aline/Vagrant/salt-local/.git/
+git checkout -f
+sudo salt-call state.highstate
+
