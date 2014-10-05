@@ -29,7 +29,7 @@ pkg-installed:
       - htop
       - python-matplotlib 
       - vim-gtk
-
+      - openjdk-7-jdk
 
 
 
