@@ -32,7 +32,6 @@ pkg-installed:
       - openjdk-7-jdk
       - libreoffice-base
       - libmysql-java
-      - mysql-server
 
 
 

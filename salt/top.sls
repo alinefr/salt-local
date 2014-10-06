@@ -4,5 +4,6 @@ base:
     - mutt
     - fglrx
     - ipython
+    - mysql
 
 
