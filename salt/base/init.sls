@@ -30,6 +30,7 @@ pkg-installed:
       - python-matplotlib 
       - vim-gtk
       - openjdk-7-jdk
+      - libreoffice-base
 
 
 
