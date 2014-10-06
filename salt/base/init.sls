@@ -31,6 +31,8 @@ pkg-installed:
       - vim-gtk
       - openjdk-7-jdk
       - libreoffice-base
+      - libmysql-java
+      - mysql-server
 
 
 
